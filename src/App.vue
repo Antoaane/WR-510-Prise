@@ -3,22 +3,33 @@ import { onMounted, ref, watch } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import axios from 'axios';
 
-const data = ref()
+const statusData = ref()
+const settingsData = ref()
 
 onMounted(async () => {
-  const response = await axios.get('http://192.168.1.100/status')
-  data.value = response.data
+  const status = await axios.get('http://192.168.1.100/status')
+  const settings = await axios.get('http://192.168.1.100/settings')
+  statusData.value = status.data
+  settingsData.value = settings.data
 })
 
 </script>
 
 <template>
-  <div v-if="data" class="container">
-    <p>Température : {{ data.temperature }}°C <span v-if="data.overtemperature === true" class="red"></span><span v-else class="green"></span></p>
-    <p>Humidité : {{ data.humidity }}%</p>
+  <div v-if="statusData" class="container">
+    <p class="bubble">
+      Température : {{ statusData.temperature }}°C 
+      <span v-if="statusData.overtemperature === true" class="red"></span>
+      <span v-else class="green"></span>
+    </p>
+    <p class="bubble">
+      Puissance : {{ statusData.meters[0].power }}W 
+      <span v-if="statusData.meters[0].overpower === true" class="red"></span>
+      <span v-else class="green"></span>
+    </p>
   </div>
   <p v-else>Chargement des données</p>
   <pre>
-    {{ data }}
+    {{ settingsData }}
   </pre>
 </template>

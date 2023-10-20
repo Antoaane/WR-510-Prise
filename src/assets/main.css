@@ -1,13 +1,15 @@
 @import './base.css';
 
 .container {
-    width: 40vw;
     margin: 0 auto;
+    padding: 1rem;
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
 
     background-color: rgb(61, 164, 233);
+    border-radius: 1rem;
 }
 
 .red {
@@ -30,4 +32,11 @@
     background-color: rgb(0, 255, 0);
 
     border-radius: 999px;
+}
+
+.bubble {
+    padding: 1rem;
+
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.1);
 }
