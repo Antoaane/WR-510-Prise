@@ -1,6 +1,7 @@
 @import './base.css';
 
 .container {
+    width: 60vw;
     margin: 0 auto;
     padding: 1rem;
 
@@ -18,7 +19,7 @@
 
     display: block;
 
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(255, 100, 100);
 
     border-radius: 999px;
 }
@@ -29,7 +30,7 @@
 
     display: block;
 
-    background-color: rgb(0, 255, 0);
+    background-color: rgb(125, 233, 133);
 
     border-radius: 999px;
 }
@@ -39,4 +40,69 @@
 
     border-radius: 1rem;
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+.trigger {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    cursor: pointer;
+}
+
+.button-container {
+    width: 4.5rem;
+    height: 2.5rem;
+    padding: 0.25rem;
+    margin: 1rem auto;
+
+    position: relative;
+
+    border-radius: 999px;
+    
+    transition: all 0.3s ease-in-out;
+}
+
+.button-container {
+    cursor: pointer;
+}
+
+.button {
+    width: 2rem;
+    height: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+
+    color: rgb(123, 151, 186);
+    font-size: 1.1rem;
+
+    border-radius: 999px;
+    border: none;
+
+    box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.2);
+
+    transition: all 0.3s ease-in-out;
+}
+
+.on {
+    transform: translateX(2rem);
+}
+
+.off {
+    transform: translateX(0);
+}
+
+.c-on {
+    background-color: rgb(125, 233, 133);
+}
+
+.c-off {
+    background-color: rgb(255, 100, 100);
 }
